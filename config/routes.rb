@@ -1,2 +1,2 @@
-Rails.application.routes.draw do
+Gerege::Engine.routes.draw do
 end
