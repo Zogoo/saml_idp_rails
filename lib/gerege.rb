@@ -1,5 +1,5 @@
 require "gerege/version"
-require "gerege/railtie"
+require "gerege/engine"
 
 module Gerege
   # Your code goes here...
