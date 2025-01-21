@@ -1,0 +1,93 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# This model initially had no columns defined. If you add columns to the
+# model remove the "{}" from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+one:
+  name: "Test SP Config One"
+  display_name: "Test SP One"
+  entity_id: "http://test-sp-one.com"
+  name_id_formats: |
+    ["email_address"]
+  assertion_consumer_services: | 
+    [
+      { 
+        "default": "true",
+        "binding": "HTTP-POST",
+        "location": "http://test-sp-one.com/acs"
+      }
+    ]
+  signing_certificate: "sample_signing_certificate"
+  encryption_certificate: "sample_encryption_certificate"
+  sign_assertions: true
+  sign_authn_request: false
+  single_logout_services: | 
+    {"HTTP-Redirect": "http://test-sp-one.com/slo"}
+  contact_person: |
+    {
+      "given_name": "John",
+      "surname": "Doe",
+      "email_address": "john.doe@test-sp-one.com"
+    }
+  certificate: "sample_certificate"
+  private_key: "sample_private_key"
+  pv_key_password: "sample_password"
+  relay_state: "sample_relay_state"
+  name_id_attribute: "email"
+  saml_attributes: |
+    [
+      {
+        "name": "email",
+        "getter": "email",
+        "nameFormat": "urn:oasis:names:tc:SAML:2.0:attrname-format:basic",
+        "friendlyName": "Email address"
+      }
+    ]
+  raw_metadata: "sample_raw_metadata"
+  uuid: "123e4567-e89b-12d3-a456-426614174000"
+# column: value
+#
+two:
+  name: "Test SP Config Two"
+  display_name: "Test SP Two"
+  entity_id: "http://test-sp-two.com"
+  name_id_formats: | 
+    ["email_address"]
+  assertion_consumer_services: |
+    [
+      {
+        "default": "true",
+        "binding": "HTTP-POST",
+        "location": "http://test-sp-two.com/acs"
+      }
+    ]
+  signing_certificate: "sample_signing_certificate_two"
+  encryption_certificate: "sample_encryption_certificate_two"
+  sign_assertions: false
+  sign_authn_request: true
+  single_logout_services: | 
+    {"HTTP-Redirect": "http://test-sp-one.com/slo"}
+  contact_person: | 
+    {
+      "given_name": "Jane",
+      "surname": "Smith",
+      "email_address": "jane.smith@test-sp-two.com"
+    }
+  certificate: "sample_certificate_two"
+  private_key: "sample_private_key_two"
+  pv_key_password: "sample_password_two"
+  relay_state: "sample_relay_state_two"
+  name_id_attribute: "email"
+  saml_attributes: | 
+    [
+      {
+        "name": "email",
+        "getter": "email",
+        "nameFormat": "urn:oasis:names:tc:SAML:2.0:attrname-format:basic",
+        "friendlyName": "Email address"
+      }
+    ]
+  raw_metadata: "sample_raw_metadata_two"
+  uuid: "123e4567-e89b-12d3-a456-426614174001"
+# column: value

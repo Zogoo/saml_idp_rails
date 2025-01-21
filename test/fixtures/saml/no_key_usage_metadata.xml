@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata"
+  validUntil="2025-01-22T17:29:38Z" cacheDuration="PT604800S" entityID="http://sp.example.com/saml">
+  <md:SPSSODescriptor AuthnRequestsSigned="true" WantAssertionsSigned="false"
+    protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+    <md:KeyDescriptor>
+      <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+        <ds:X509Data>
+          <ds:X509Certificate>
+            MIIChDCCAe2gAwIBAgIBADANBgkqhkiG9w0BAQ0FADBfMQswCQYDVQQGEwJqcDESMBAGA1UECAwJ5Y2D6JGJ55yMMRcwFQYDVQQKDA5HZXJlZ2UgQ28uLGx0ZDEPMA0GA1UEAwwGR2VyZWdlMRIwEAYDVQQHDAnmnb7miLjluIIwHhcNMjUwMTIwMTcyODU3WhcNMjYwMTIwMTcyODU3WjBfMQswCQYDVQQGEwJqcDESMBAGA1UECAwJ5Y2D6JGJ55yMMRcwFQYDVQQKDA5HZXJlZ2UgQ28uLGx0ZDEPMA0GA1UEAwwGR2VyZWdlMRIwEAYDVQQHDAnmnb7miLjluIIwgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAJqahXogz1ZYhDMIpwf6Nl1J9q1rfBU/rtdrzBzVRAgbLc8U+9PxiD0jMPTe1E0pC3GluNYDrMcZgs5ZCEL3qlCA/X7VPjVZgiHdu95gfjZUjZpiJ5Bct2M71qOdv9OfuVLuCzaP7UUCbXJGTOR1By7WlpH2cYDLhpBoonRanHD7AgMBAAGjUDBOMB0GA1UdDgQWBBSpPp2tUYLtmbp8GmpUeLeoZMAJTjAfBgNVHSMEGDAWgBSpPp2tUYLtmbp8GmpUeLeoZMAJTjAMBgNVHRMEBTADAQH/MA0GCSqGSIb3DQEBDQUAA4GBAEmt1C8GLTY2TmpVy0agmQEtMdt+qPIoAQucgOOpldp/YXShIfK13iiZv51KYZH23vCAXKcjhh3tslwUYy9EQugxr3i1Qiitwvx/tD2EhqCamAOA03SR85AJTzgqRKLWwKBcwIouEsttVuiC49Y9IBScg5i1XVmI8baD7CSOBKRh</ds:X509Certificate>
+        </ds:X509Data>
+      </ds:KeyInfo>
+    </md:KeyDescriptor>
+    <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect"
+      Location="http://sp.example.com/saml/slo" />
+    <md:NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified</md:NameIDFormat>
+    <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"
+      Location="http://sp.example.com/saml/acs" index="1" />
+  </md:SPSSODescriptor>
+</md:EntityDescriptor>

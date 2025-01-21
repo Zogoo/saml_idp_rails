@@ -4,7 +4,7 @@ Gem::Specification.new do |spec|
   spec.name        = "gerege"
   spec.version     = Gerege::VERSION
   spec.authors     = [ "zogoo" ]
-  spec.email       = [ "ch.tsogbadrakh@gmail.com" ]
+  spec.email       = [ "ch.zogoo@gmail.com" ]
   spec.homepage    = "https://github.com/zogoo/gerege"
   spec.summary     = "Identity and Access Management for Rails"
   spec.description = "Gerege is open source Identity and Access Management for Rails."
@@ -23,4 +23,9 @@ Gem::Specification.new do |spec|
   end
 
   spec.add_dependency "rails", ">= 8.0.1"
+  spec.add_dependency "saml_idp"
+
+  spec.add_development_dependency "rubocop"
+  spec.add_development_dependency "debug"
+  spec.add_development_dependency "ruby-saml"
 end
