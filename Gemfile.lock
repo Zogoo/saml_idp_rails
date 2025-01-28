@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/Zogoo/saml_idp
-  revision: bda126961220c2649ba84dc7ba7e4f4534b2f700
+  revision: 8f1d317e34e4a9703cb0e503c78c2977c7c01923
   branch: master
   specs:
     saml_idp (0.16.0)
