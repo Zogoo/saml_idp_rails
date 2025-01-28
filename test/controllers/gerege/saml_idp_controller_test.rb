@@ -66,7 +66,7 @@ module Gerege
       assert_response :success
     end
 
-    test 'should initiate SLO' do
+    test "should initiate SLO" do
       post initiate_slo_path(uuid: @sp_config.uuid)
       assert_response :success
       assert_template :slo_request
