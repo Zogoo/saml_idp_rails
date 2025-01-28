@@ -66,12 +66,13 @@ module Gerege
       assert_response :success
     end
 
-    # test 'should initiate SLO' do
-    #   post initiate_slo_path(uuid: @sp_config.uuid)
-    #   assert_response :success
-    #   assert_template :slo_request
-    #   assert_not_nil assigns(:slo_request_params)
-    # end
+    test 'should initiate SLO' do
+      post initiate_slo_path(uuid: @sp_config.uuid)
+      assert_response :success
+      assert_template :slo_request
+      assert_not_nil assigns(:slo_request_params)
+      assert_match /<input type="hidden" name="SAMLRequest" value="[^"]+/, response.body
+    end
 
     # test 'should encode SAML response' do
     #   Gerege::SamlIdpController.any_instance.stubs(:user_signed_in?).returns(true)

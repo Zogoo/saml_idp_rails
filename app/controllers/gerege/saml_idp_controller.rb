@@ -44,15 +44,18 @@ module Gerege
       slo_location = slo_endpoint&.values&.first
 
       logout_request = SamlIdp::LogoutRequestBuilder.new(
-        SecureRandom.uuid,
-        Gerege.config.base_url,
-        slo_location,
-        current_sp_config.name_id_value,
-        OpenSSL::Digest::SHA256 # TODO: Update this to use the SP's digest method
+        response_id: SecureRandom.uuid,
+        issuer_uri: Gerege.config.base_url,
+        saml_slo_url: slo_location,
+        name_id: @saml_config.name_id_value,
+        algorithm: OpenSSL::Digest::SHA256, # TODO: Update this to use the SP's digest method
+        public_cert: current_sp_config.certificate,
+        private_key: current_sp_config.private_key,
+        pv_key_password: current_sp_config.pv_key_password
       ).signed
 
       @slo_request_params = {
-        name: sp_config.name,
+        name: current_sp_config.name,
         location: slo_location,
         params: {
           SAMLRequest: binding == :get ? Base64.encode64(logout_request) : logout_request,

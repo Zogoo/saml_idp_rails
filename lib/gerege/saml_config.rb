@@ -88,6 +88,13 @@ module Gerege
       end.new(nil, base_url, default_acs_config[:location])
     end
 
+    def name_id_value(attribute_name = nil)
+      attr = attribute_name.presence || saml_user.name_id_attribute
+      val =  saml_user.public_send(attr) if saml_user.respond_to?(attr)
+      raise("Gerege: Name ID attribute #{attr} is not set") if val.blank?
+      val
+    end
+
     private
 
     def service_providers
@@ -147,13 +154,6 @@ module Gerege
       return "1.1" if %w[email_address unspecified].include?(parsed_format.underscore)
 
       "2.0"
-    end
-
-    def name_id_value(attribute_name = nil)
-      attr = attribute_name.presence || saml_user.name_id_attribute
-      val =  saml_user.public_send(attr) if saml_user.respond_to?(attr)
-      raise("Gerege: Name ID attribute #{attr} is not set") if val.blank?
-      val
     end
 
     def default_acs_config
