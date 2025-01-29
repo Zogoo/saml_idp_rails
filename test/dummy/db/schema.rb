@@ -11,7 +11,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[8.0].define(version: 2025_01_20_165545) do
-  create_table "gerege_saml_sp_configs", force: :cascade do |t|
+  create_table "saml_idp_rails_saml_sp_configs", force: :cascade do |t|
     t.string "name"
     t.string "display_name"
     t.string "entity_id"

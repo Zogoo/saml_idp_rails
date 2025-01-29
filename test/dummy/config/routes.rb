@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  mount Gerege::Engine => "/gerege"
+  mount SamlIdpRails::Engine => "/saml_idp_rails"
 end

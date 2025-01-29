@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-# Specify your gem's dependencies in gerege.gemspec.
+# Specify your gem's dependencies in saml_idp_rails.gemspec.
 gemspec
 
 gem "puma"
