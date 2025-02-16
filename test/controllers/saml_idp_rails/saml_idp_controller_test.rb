@@ -15,11 +15,8 @@ module SamlIdpRails
       @sp_config.pv_key_password = "password"
       @sp_config.signing_certificate = File.read("test/fixtures/saml/keys/public_key.pem")
       @sp_config.encryption_certificate = nil # Skip encryption for now
+      @sp_config.save!
 
-      @user = User.new(
-        name_id_attribute: "email",
-        email: "user@example.com"
-      )
       @saml_request = "sample_saml_request"
       @relay_state = "sample_relay_state"
 
@@ -27,8 +24,8 @@ module SamlIdpRails
         config.base_url = "https://idp.example.com"
         config.sign_in_url = "https://idp.example.com/sign_in"
         config.relay_state_url = "https://idp.example.com/home_page"
-        config.saml_config_finder = -> { @sp_config }
-        config.saml_user_finder = -> { @user }
+        config.saml_config_finder = ->(request) { SamlIdpRails::SamlSpConfig.find_by(uuid: params.require(:uuid)) }
+        config.saml_user_finder = ->(request) { User.new(name_id_attribute: "email", email: "user@example.com") }
         config.session_validation_hook = ->(session) { true } # Skip validation
       end
     end
@@ -49,7 +46,7 @@ module SamlIdpRails
     end
 
     test "should store authn request for unsigned user" do
-      SamlIdpRails.config.saml_user_finder = -> { nil }
+      SamlIdpRails.config.saml_user_finder = ->(request) { nil }
       client_setting = sp_settings(@sp_config)
       authn_params = create_authn_request(client_setting)
       get sso_redirect_path(uuid: @sp_config.uuid), params: authn_params
