@@ -98,11 +98,15 @@ module SamlIdpRails
     end
 
     def current_sp_config
-      @current_sp_config ||= SamlIdpRails.config.saml_config_finder.call
+      @current_sp_config ||= begin
+        instance_exec(request, &SamlIdpRails.config.saml_config_finder)
+      end
     end
 
     def current_saml_user
-      @current_saml_user ||= SamlIdpRails.config.saml_user_finder.call
+      @current_saml_user ||= begin
+        instance_exec(request, &SamlIdpRails.config.saml_user_finder)
+      end
     end
 
     def store_authn_request

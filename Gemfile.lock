@@ -297,11 +297,11 @@ DEPENDENCIES
   propshaft
   puma
   rails-controller-testing
-  saml_idp_rails!
   rubocop
   rubocop-rails-omakase
   ruby-saml
   saml_idp!
+  saml_idp_rails!
   sqlite3
 
 BUNDLED WITH
