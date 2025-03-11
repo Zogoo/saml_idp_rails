@@ -18,3 +18,5 @@ gem "saml_idp", git: "https://github.com/Zogoo/saml_idp", branch: "master"
 gem "debug", ">= 1.0.0"
 
 gem "rails-controller-testing"
+
+gem "rubocop"
