@@ -10,13 +10,14 @@ Gem::Specification.new do |spec|
   spec.description = "SamlIdpRails is open source Idp controller for Rails."
   spec.license     = "MIT"
 
-  # Prevent pushing this gem to RubyGems.org. To allow pushes either set the "allowed_push_host"
-  # to allow pushing to a single host or delete this section to allow pushing to any host.
-  spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
+  # For GitHub Packages, set the allowed push host to GitHub's package registry
+  spec.metadata["allowed_push_host"] = "https://rubygems.pkg.github.com"
 
   spec.metadata["homepage_uri"] = spec.homepage
   spec.metadata["source_code_uri"] = "https://github.com/zogoo/saml_idp_rails"
   spec.metadata["changelog_uri"] = "https://github.com/Zogoo/saml_idp_rails/blob/master/CHANGELOG.md"
+
+  spec.required_ruby_version = ">= 3.4.1"
 
   spec.files = Dir.chdir(File.expand_path(__dir__)) do
     Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]

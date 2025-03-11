@@ -20,3 +20,8 @@ gem "debug", ">= 1.0.0"
 gem "rails-controller-testing"
 
 gem "rubocop"
+
+# Add these gems for Ruby 3.4 compatibility
+gem "net-smtp"
+gem "net-imap"
+gem "net-pop"
