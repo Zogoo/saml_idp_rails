@@ -294,6 +294,9 @@ PLATFORMS
 
 DEPENDENCIES
   debug (>= 1.0.0)
+  net-imap
+  net-pop
+  net-smtp (~> 0.5)
   propshaft
   puma
   rails-controller-testing
