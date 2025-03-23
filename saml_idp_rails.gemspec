@@ -11,7 +11,8 @@ Gem::Specification.new do |spec|
   spec.license     = "MIT"
 
   # For GitHub Packages, set the allowed push host to GitHub's package registry
-  spec.metadata["allowed_push_host"] = "https://rubygems.pkg.github.com"
+  spec.metadata["allowed_push_host"] = "https://rubygems.pkg.github.com/zogoo"
+  spec.metadata["github_repo"] = "zogoo/saml_idp_rails"
 
   spec.metadata["homepage_uri"] = spec.homepage
   spec.metadata["source_code_uri"] = "https://github.com/zogoo/saml_idp_rails"
