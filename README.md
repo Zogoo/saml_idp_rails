@@ -128,6 +128,21 @@ SamlIdpRails::SamlSpConfig.create(
 )
 ```
 
+Once you successfully create the correct `SamlSpConfig`.
+Then you can test it in your development environment to accessing following url
+
+1. Metadata endpoint
+```bash
+curl http://localhost:3000/saml_idp/8ad17d2a-f870-4796-8212-7487411b8578/metadata
+```
+
+2. IdP initiated SAML SSO
+You will see SAML response posted `http://test-sp-one.com/acs` in the Network tab of Browser dev tool.
+
+```url
+http://localhost:3000/saml_idp/8ad17d2a-f870-4796-8212-7487411b8578/sso
+```
+
 ## Contributing
 To contribute, fork the repository and create a pull request with your changes.
 
